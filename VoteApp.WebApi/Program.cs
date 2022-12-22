@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.HttpOverrides;
 using NLog;
 using System.IO;
 using VoteApp.WebApi.Extensions;
@@ -22,6 +23,12 @@ else
 {
     app.UseHsts();
 }
+
+app.UseForwardedHeaders(new ForwardedHeadersOptions()
+{
+    ForwardedHeaders = ForwardedHeaders.All
+});
+
 app.UseCors("CorsPolicy");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
