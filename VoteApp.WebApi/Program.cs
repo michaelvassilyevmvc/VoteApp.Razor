@@ -10,6 +10,9 @@ LogManager.LoadConfiguration(configFile: string.Concat(str0: Directory.GetCurren
 builder.Services.ConfigureCors();
 builder.Services.ConfigureIISIntegration();
 builder.Services.ConfigureLoggerService();
+builder.Services.ConfigureRepositoryManager();
+builder.Services.ConfigureServiceManager();
+builder.Services.ConfigureSqlContext(builder.Configuration);
 builder.Services.AddControllers();
 
 var app = builder.Build();
@@ -29,9 +32,10 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions()
     ForwardedHeaders = ForwardedHeaders.All
 });
 
-app.UseCors("CorsPolicy");
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+app.UseCors("CorsPolicy");
 
 
 app.UseAuthorization();
