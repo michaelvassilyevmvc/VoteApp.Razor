@@ -1,3 +1,4 @@
+using Contracts;
 using Microsoft.AspNetCore.HttpOverrides;
 using NLog;
 using VoteApp.WebApi.Extensions;
@@ -18,25 +19,23 @@ builder.Services.AddControllers()
     .AddApplicationPart(typeof(VoteApp.Presentation.AssemblyReference).Assembly);
 
 var app = builder.Build();
+var logger = app.Services.GetRequiredService<ILoggerManager>();
+app.ConfigureExceptionHandler(logger);
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage();
-}
-else
+
+if (app.Environment.IsProduction())
 {
     app.UseHsts();
 }
 
+app.UseHttpsRedirection();
+app.UseStaticFiles();
 app.UseForwardedHeaders(new ForwardedHeadersOptions()
 {
     ForwardedHeaders = ForwardedHeaders.All
 });
 
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
 app.UseCors("CorsPolicy");
 
 

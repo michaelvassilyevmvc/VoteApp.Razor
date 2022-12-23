@@ -17,15 +17,10 @@ namespace VoteApp.Presentation.Controllers
         [HttpGet]
         public IActionResult GetUsers()
         {
-            try
-            {
+            
                 var users = _service.UserService.GetAllUsers(false);
                 return Ok(users);
-            }
-            catch
-            {
-                return StatusCode(500, "Internal server error");
-            }
+            
         }
     }
 }

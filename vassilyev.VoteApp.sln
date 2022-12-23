@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoteApp.Razor", "VoteApp.Razor\VoteApp.Razor.csproj", "{5EA65F59-8B6C-4FD3-B43C-8D58D354CD77}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0EBE14C9-CE5D-4F4F-AD00-BC1F92B39D15}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BF2AF622-E597-44C0-89B4-973AABDAB960}"
@@ -33,9 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.Contracts", "Service.Contracts\Service.Contracts.csproj", "{01571263-0792-45D3-B33D-D78395622DF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoteApp.Presentation", "VoteApp.Presentation\VoteApp.Presentation.csproj", "{FDC4B4B7-F858-4A69-8257-B7B417E8056B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VoteApp.Presentation", "VoteApp.Presentation\VoteApp.Presentation.csproj", "{FDC4B4B7-F858-4A69-8257-B7B417E8056B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{C95A10CC-57C7-4BE5-A24A-7A1CFD0AFCB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{C95A10CC-57C7-4BE5-A24A-7A1CFD0AFCB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +41,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5EA65F59-8B6C-4FD3-B43C-8D58D354CD77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5EA65F59-8B6C-4FD3-B43C-8D58D354CD77}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5EA65F59-8B6C-4FD3-B43C-8D58D354CD77}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5EA65F59-8B6C-4FD3-B43C-8D58D354CD77}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B17D310A-2554-4CE5-A577-92EF3ECE8801}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B17D310A-2554-4CE5-A577-92EF3ECE8801}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B17D310A-2554-4CE5-A577-92EF3ECE8801}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -92,7 +86,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{5EA65F59-8B6C-4FD3-B43C-8D58D354CD77} = {0EBE14C9-CE5D-4F4F-AD00-BC1F92B39D15}
 		{B17D310A-2554-4CE5-A577-92EF3ECE8801} = {E49AE532-7CC3-4505-BF00-DE1E76850099}
 		{F0D6B696-07E1-4455-88AF-3E4D183EAAE5} = {0EBE14C9-CE5D-4F4F-AD00-BC1F92B39D15}
 		{1293F9AC-0B4A-46C5-89A8-63DC8E9CD944} = {0EBE14C9-CE5D-4F4F-AD00-BC1F92B39D15}

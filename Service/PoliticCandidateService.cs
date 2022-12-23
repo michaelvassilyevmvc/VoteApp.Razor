@@ -19,17 +19,11 @@ namespace Service.Contracts
 
         public IEnumerable<PoliticCandidateDto> GetAllPoliticCandidate(bool trackChanges)
         {
-            try
-            {
-                var politics = _repository.PoliticCandidate.GetAllPoliticCandidates(trackChanges);
-                var politicsDto = _mapper.Map<IEnumerable<PoliticCandidateDto>>(politics);
-                return politicsDto;
-            }
-            catch(Exception ex)
-            {
-                _logger.LogError($"Something went wrong in the {nameof(GetAllPoliticCandidate)} service method {ex}");
-                throw;
-            }
+
+            var politics = _repository.PoliticCandidate.GetAllPoliticCandidates(trackChanges);
+            var politicsDto = _mapper.Map<IEnumerable<PoliticCandidateDto>>(politics);
+            return politicsDto;
+
         }
     }
 }

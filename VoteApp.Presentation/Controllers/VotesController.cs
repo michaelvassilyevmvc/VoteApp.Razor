@@ -17,15 +17,9 @@ namespace VoteApp.Presentation.Controllers
         [HttpGet]
         public IActionResult GetVotes()
         {
-            try
-            {
                 var votes = _service.VoteService.GetAllVotes(false);
                 return Ok(votes);
-            }
-            catch
-            {
-                return StatusCode(500, "Internal server error");
-            }
+            
         }
     }
 }

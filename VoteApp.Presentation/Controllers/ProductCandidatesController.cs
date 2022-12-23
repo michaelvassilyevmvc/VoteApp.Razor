@@ -17,15 +17,10 @@ namespace VoteApp.Presentation.Controllers
         [HttpGet]
         public IActionResult GetProductCandidates()
         {
-            try
-            {
+            
                 var products = _service.ProductCandidateService.GetAllProductCandidate(false);
                 return Ok(products);
-            }
-            catch
-            {
-                return StatusCode(500, "Internal server error");
-            }
+            
         }
     }
 }

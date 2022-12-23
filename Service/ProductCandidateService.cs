@@ -19,17 +19,11 @@ namespace Service.Contracts
 
         public IEnumerable<ProductCandidateDto> GetAllProductCandidate(bool trackChanges)
         {
-            try
-            {
+            
                 var products = _repository.ProductCandidate.GetAllProductCandidate(trackChanges);
                 var productsDto = _mapper.Map<IEnumerable<ProductCandidateDto>>(products);
                 return productsDto;
-            }
-            catch(Exception ex)
-            {
-                _logger.LogError($"Something went wrong in the {nameof(GetAllProductCandidate)} service method {ex}");
-                throw;
-            }
+           
         }
     }
 }

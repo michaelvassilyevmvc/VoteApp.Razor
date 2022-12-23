@@ -19,17 +19,11 @@ namespace Service.Contracts
 
         public IEnumerable<UserDto> GetAllUsers(bool trackChanges)
         {
-            try
-            {
+           
                 var users = _repository.User.GetAllUsers(trackChanges);
                 var usersDto = _mapper.Map<IEnumerable<UserDto>>(users);
                 return usersDto;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Something went wrong with {nameof(GetAllUsers)} service method {ex}");
-                throw;
-            }
+           
 
 
         }

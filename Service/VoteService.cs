@@ -19,17 +19,11 @@ namespace Service.Contracts
 
         public IEnumerable<VoteDto> GetAllVotes(bool trackChanges)
         {
-            try
-            {
+           
                 var votes = _repository.Vote.GetAllVotes(trackChanges);
                 var votesDto = _mapper.Map<IEnumerable<VoteDto>>(votes);    
                 return votesDto;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Something went wrong with {nameof(GetAllVotes)} service method {ex}");
-                throw;
-            }
+           
         }
     }
 }
