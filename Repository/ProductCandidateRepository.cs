@@ -8,5 +8,10 @@ namespace Repository
         public ProductCandidateRepository(RepositoryContext repositoryContext) : base(repositoryContext)
         {
         }
+
+        public IEnumerable<ProductCandidate> GetAllProductCandidate(bool trackChanges)
+        {
+            return FindAll(trackChanges).OrderBy(x=>x.Name).ToList();
+        }
     }
 }

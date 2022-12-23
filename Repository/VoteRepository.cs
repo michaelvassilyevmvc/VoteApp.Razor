@@ -7,6 +7,12 @@ namespace Repository
     {
         public VoteRepository(RepositoryContext repositoryContext) : base(repositoryContext)
         {
+
+        }
+
+        public IEnumerable<Vote> GetAllVotes(bool trackChanges)
+        {
+            return FindAll(trackChanges).OrderByDescending(x=>x.VoteDate).ToList();
         }
     }
 }

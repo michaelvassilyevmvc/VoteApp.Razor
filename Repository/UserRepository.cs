@@ -8,5 +8,10 @@ namespace Repository
         public UserRepository(RepositoryContext repositoryContext) : base(repositoryContext)
         {
         }
+
+        public IEnumerable<User> GetAllUsers(bool trackChanges)
+        {
+            return FindAll(trackChanges).OrderBy(x => x.LName).ToList();
+        }
     }
 }

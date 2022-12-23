@@ -1,7 +1,6 @@
 ﻿using Contracts;
 using LoggerService;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Repository;
 using Service.Contracts;
 
@@ -9,7 +8,8 @@ namespace VoteApp.WebApi.Extensions
 {
     public static class ServiceExtensions
     {
-        public static void ConfigureCors(this IServiceCollection services) { 
+        public static void ConfigureCors(this IServiceCollection services)
+        {
             services.AddCors(config =>
             {
                 config.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());

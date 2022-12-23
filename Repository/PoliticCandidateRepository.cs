@@ -8,5 +8,10 @@ namespace Repository
         public PoliticCandidateRepository(RepositoryContext repositoryContext) : base(repositoryContext)
         {
         }
+
+        public IEnumerable<PoliticCandidate> GetAllPoliticCandidates(bool trackChanges)
+        {
+            return FindAll(trackChanges).OrderBy(x => x.PartyName).ToList();
+        }
     }
 }

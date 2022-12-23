@@ -1,6 +1,9 @@
-﻿namespace Service.Contracts
+﻿using Shared.DataTransferObjects;
+
+namespace Service.Contracts
 {
     public interface IUserService
     {
+        IEnumerable<UserDto> GetAllUsers(bool trackChanges); 
     }
 }
