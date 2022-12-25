@@ -22,5 +22,12 @@ namespace VoteApp.Presentation.Controllers
                 return Ok(users);
             
         }
+
+        [HttpGet("{userId:guid}")]
+        public IActionResult GetUser(Guid userId)
+        {
+            var user = _service.UserService.GetUser(userId, false);
+            return Ok(user);
+        }
     }
 }

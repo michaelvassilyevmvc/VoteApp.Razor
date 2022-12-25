@@ -9,9 +9,8 @@ namespace Repository
         {
         }
 
-        public IEnumerable<ProductCandidate> GetAllProductCandidate(bool trackChanges)
-        {
-            return FindAll(trackChanges).OrderBy(x=>x.Name).ToList();
-        }
+        public IEnumerable<ProductCandidate> GetAllProductCandidate(bool trackChanges) => FindAll(trackChanges).OrderBy(x => x.Name).ToList();
+
+        public ProductCandidate GetProductCandidate(Guid productId, bool trackChanges) => FindByCondition(x => x.Id.Equals(productId), trackChanges).SingleOrDefault();
     }
 }

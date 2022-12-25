@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Contracts;
+using Entities.Extensions;
 using Shared.DataTransferObjects;
 
 namespace Service.Contracts
@@ -19,13 +20,21 @@ namespace Service.Contracts
 
         public IEnumerable<UserDto> GetAllUsers(bool trackChanges)
         {
-           
                 var users = _repository.User.GetAllUsers(trackChanges);
                 var usersDto = _mapper.Map<IEnumerable<UserDto>>(users);
                 return usersDto;
-           
+        }
 
+        public UserDto GetUser(Guid userId, bool trackChanges)
+        {
+            var user = _repository.User.GetUser(userId, trackChanges);
+            if (user == null)
+            {
+                throw new UserNotFoundException(userId);
+            }
 
+            var userDto = _mapper.Map<UserDto>(user);
+            return userDto;
         }
     }
 }

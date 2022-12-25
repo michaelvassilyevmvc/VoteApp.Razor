@@ -9,9 +9,8 @@ namespace Repository
         {
         }
 
-        public IEnumerable<PoliticCandidate> GetAllPoliticCandidates(bool trackChanges)
-        {
-            return FindAll(trackChanges).OrderBy(x => x.PartyName).ToList();
-        }
+        public IEnumerable<PoliticCandidate> GetAllPoliticCandidates(bool trackChanges) => FindAll(trackChanges).OrderBy(x => x.PartyName).ToList();
+
+        public PoliticCandidate GetPoliticCandidate(Guid candidateId, bool trackChanges) => FindByCondition(x => x.Id.Equals(candidateId), trackChanges).SingleOrDefault();
     }
 }

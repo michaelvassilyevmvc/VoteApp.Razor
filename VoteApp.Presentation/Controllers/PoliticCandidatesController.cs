@@ -22,5 +22,12 @@ namespace VoteApp.Presentation.Controllers
                 return Ok(politics);
             
         }
+
+        [HttpGet("{politicId:guid}")]
+        public IActionResult GetPolitic(Guid politicId)
+        {
+            var politic = _service.PoliticCandidateService.GetPoliticCandidate(politicId, false);
+            return Ok(politic);
+        }
     }
 }

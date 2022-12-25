@@ -17,10 +17,18 @@ namespace VoteApp.Presentation.Controllers
         [HttpGet]
         public IActionResult GetProductCandidates()
         {
-            
-                var products = _service.ProductCandidateService.GetAllProductCandidate(false);
-                return Ok(products);
-            
+
+            var products = _service.ProductCandidateService.GetAllProductCandidate(false);
+            return Ok(products);
+
         }
+
+        [HttpGet("{productId:guid}")]
+        public IActionResult GetProductCandidate(Guid productId)
+        {
+            var product = _service.ProductCandidateService.GetProductCandidate(productId, false);
+            return Ok(product);
+        }
+
     }
 }

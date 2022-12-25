@@ -21,5 +21,12 @@ namespace VoteApp.Presentation.Controllers
                 return Ok(votes);
             
         }
+
+        [HttpGet("byVote")]
+        public IActionResult GetVote(Guid userId, Guid candidateId)
+        {
+            var vote = _service.VoteService.GetVote(userId, candidateId, false);
+            return Ok(vote);
+        }
     }
 }

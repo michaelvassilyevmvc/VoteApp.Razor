@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Contracts;
+using Entities.Extensions;
 using Shared.DataTransferObjects;
 
 namespace Service.Contracts
@@ -24,6 +25,18 @@ namespace Service.Contracts
                 var votesDto = _mapper.Map<IEnumerable<VoteDto>>(votes);    
                 return votesDto;
            
+        }
+
+        public VoteDto GetVote(Guid userId, Guid candidateId, bool trackChanges)
+        {
+            var vote = _repository.Vote.GetVote(userId, candidateId, trackChanges);
+            if(vote == null)
+            {
+                throw new VoteNotFoundException(userId, candidateId);
+            }
+
+            var voteDto = _mapper.Map<VoteDto>(vote);
+            return voteDto;
         }
     }
 }

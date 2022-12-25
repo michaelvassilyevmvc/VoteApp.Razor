@@ -25,5 +25,12 @@ namespace Service.Contracts
             return politicsDto;
 
         }
+
+        public PoliticCandidateDto GetPoliticCandidate(Guid politicCandidateId, bool trackChanges)
+        {
+            var politic = _repository.PoliticCandidate.GetPoliticCandidate(politicCandidateId, trackChanges);
+            var politicDto = _mapper.Map<PoliticCandidateDto>(politic);
+            return politicDto;
+        }
     }
 }

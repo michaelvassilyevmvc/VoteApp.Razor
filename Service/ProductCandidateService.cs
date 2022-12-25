@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Contracts;
+using Entities.Extensions;
 using Shared.DataTransferObjects;
+using Entities.Extensions;
 
 namespace Service.Contracts
 {
@@ -24,6 +26,18 @@ namespace Service.Contracts
                 var productsDto = _mapper.Map<IEnumerable<ProductCandidateDto>>(products);
                 return productsDto;
            
+        }
+
+        public ProductCandidateDto GetProductCandidate(Guid productCandidateId, bool trackChanges)
+        {
+            var product = _repository.ProductCandidate.GetProductCandidate(productCandidateId, trackChanges);
+            if(product is null)
+            {
+                throw new ProductCandidateNotFoundException(productCandidateId);
+            }
+
+            var productDto = _mapper.Map<ProductCandidateDto>(product);
+            return productDto;
         }
     }
 }
