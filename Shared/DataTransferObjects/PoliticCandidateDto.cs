@@ -3,13 +3,13 @@
 namespace Shared.DataTransferObjects
 {
     public record PoliticCandidateDto
-    (
-        Guid Id,
-        string Code,
-        string Description,
-        string Image,
-        string PoliticDocInfo,
-        string PartyName,
-        State State
-    );
+    {
+        public Guid Id { get; set; }
+        public string Code { get; set; }
+        public string Description { get; set; }
+        public string Image { get; set; }
+        public string PoliticDocInfo { get; set; }
+        public string PartyName { get; set; }
+        public State State { get; set; }
+    }
 }

@@ -1,21 +1,16 @@
 ﻿using Entities.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shared.DataTransferObjects
 {
     public record ProductCandidateDto
-    (
-        Guid Id, 
-        string Name,
-        string Code,
-        string Description,
-        string Image,
-        DateTime? ExpireDate,
-        decimal Price,
-        State State
-    );
+    {
+        public Guid Id { get; set; }
+        public string Name { get; set; }
+        public string Code { get; set; }
+        public string Description { get; set; }
+        public string Image { get; set; }
+        public DateTime? ExpireDate { get; set; }
+        public decimal Price { get; set; }
+        public State State { get; set; }
+    }
 }

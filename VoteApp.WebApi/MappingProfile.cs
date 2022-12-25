@@ -10,7 +10,7 @@ namespace VoteApp.WebApi
         {
             CreateMap<Vote, VoteDto>();
             CreateMap<User, UserDto>()
-                .ForCtorParam("DateOfBirth", opt => opt.MapFrom(x => x.DoB));
+                .ForMember(x => x.DateOfBirth, opt => opt.MapFrom(x => x.DoB));
             CreateMap<ProductCandidate, ProductCandidateDto>();
             CreateMap<PoliticCandidate, PoliticCandidateDto>();
                 

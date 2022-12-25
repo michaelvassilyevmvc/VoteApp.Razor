@@ -1,10 +1,10 @@
 ﻿namespace Shared.DataTransferObjects
 {
     public record VoteDto
-    (
-        Guid UserId,
-        Guid CandidateId,
-        DateTime VoteDate,
-        DateTime Created
-    );
+    {
+        public Guid UserId { get; set; }
+        public Guid CandidateId { get; set; }
+        public DateTime VoteDate { get; set; }
+        public DateTime Create { get; set; }
+    }
 }

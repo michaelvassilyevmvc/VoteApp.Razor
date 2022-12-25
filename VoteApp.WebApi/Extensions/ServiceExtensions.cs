@@ -24,16 +24,20 @@ namespace VoteApp.WebApi.Extensions
             });
         }
 
-        public static void ConfigureLoggerService(this IServiceCollection services) => services.AddSingleton<ILoggerManager, LoggerManager>();
+        public static void ConfigureLoggerService(this IServiceCollection services) 
+            => services.AddSingleton<ILoggerManager, LoggerManager>();
 
-        public static void ConfigureRepositoryManager(this IServiceCollection services) => services.AddScoped<IRepositoryManager, RepositoryManager>();
+        public static void ConfigureRepositoryManager(this IServiceCollection services) 
+            => services.AddScoped<IRepositoryManager, RepositoryManager>();
 
-        public static void ConfigureServiceManager(this IServiceCollection services) => services.AddScoped<IServiceManager, ServiceManager>();
+        public static void ConfigureServiceManager(this IServiceCollection services) 
+            => services.AddScoped<IServiceManager, ServiceManager>();
 
-        public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration configuration)
-        {
-            services.AddDbContext<RepositoryContext>(options => options.UseSqlServer(configuration.GetConnectionString("sqlConnection")));
-        }
+        public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration configuration) 
+            => services.AddDbContext<RepositoryContext>(options => options.UseSqlServer(configuration.GetConnectionString("sqlConnection")));
+
+        public static IMvcBuilder AddCustomCsvFormatter(this IMvcBuilder builder) =>
+            builder.AddMvcOptions(config => config.OutputFormatters.Add(new CsvOutputFormatter()));
 
     }
 }
